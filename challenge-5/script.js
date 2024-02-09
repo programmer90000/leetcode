@@ -1,11 +1,30 @@
-var longestPalindrome = function (s) {
-    // Generate all possible substrings from the string
-    const arr = [];
-    for (let i = 1; i < s.length + 1; i++) {
-        arr.push(s.slice(0, i));
+function longestPalindrome(string) {
+    const lengthOfString = string.length;
+    const result = [];
+
+    const expandAroundCenter = (left, right) => {
+        while (left >= 0 && right < lengthOfString && string[left] === string[right]) {
+            result.push(string.substring(left, right + 1));
+            left--;
+            right++;
+        }
+    };
+
+    for (let i = 0; i < lengthOfString; i++) {
+        expandAroundCenter(i, i);
     }
 
-    // Look for the longest substring
-};
+    for (let i = 0; i < lengthOfString - 1; i++) {
+        expandAroundCenter(i, i + 1);
+    }
+
+    let longestValue = result.reduce(
+        function (a, b) {
+            return a.length > b.length ? a : b;
+        }
+    )
+
+    return longestValue;
+}
 
 console.log(longestPalindrome("babad"));
