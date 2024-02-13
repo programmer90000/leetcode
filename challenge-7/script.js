@@ -1,13 +1,13 @@
 var reverse = function (x) {
     if (typeof x === "number") {
-        if (x > 2147483648 || x < -2147483648) {
+        const max = Math.pow(2, 31);
+        const min = Math.pow(-2, 31);
+        const reversedNum = parseFloat(x.toString().split("").reverse().join("")) * Math.sign(x);
+        if (reversedNum > max || reversedNum < min) {
             return 0;
-        } else {
-            const reversedNum = parseFloat(x.toString().split("").reverse().join("")) * Math.sign(x);
-            return reversedNum;
         }
-
+        return reversedNum;
     }
 };
 
-console.log(reverse(-12345));
+console.log(reverse(1534236469));
