@@ -22,9 +22,18 @@ var myAtoi = function (s) {
         result = result * 10 + digit;
     }
 
+    if (result > 2147483647) {
+        result = 2147483647;
+    }
+
+    if (result < -2147483646) {
+        result = -2147483648;
+    }
+
     return result * sign;
 };
 
 console.log(myAtoi("42"));
 console.log(myAtoi("   -42"));
 console.log(myAtoi("4193 with words"));
+console.log("-2147483648");
