@@ -5,7 +5,7 @@ var myAtoi = function (s) {
     let result = 0;
 
     // Check if the number is positive or negative
-    if (s[0] === "-" || s === "+") {
+    if (s[0] === "-" || s[0] === "+") {
         sign = s[0] === "-" ? -1 : 1;
         s = s.slice(1);
     }
