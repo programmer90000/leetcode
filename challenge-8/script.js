@@ -26,7 +26,9 @@ var myAtoi = function (s) {
     }
 
     // Turn the string into a number
+    if (!parseInt(s)) { return 0; }
     s = s.replace(/\D/g, "");
+    s = parseInt(s);
     s = Number(s);
 
     // If the number is negative, add a - sign
