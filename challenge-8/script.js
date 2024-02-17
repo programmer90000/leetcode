@@ -1,39 +1,40 @@
 var myAtoi = function (s) {
+    let negative;
+
     s = s.trim();
 
-    let sign = 1;
-    let result = 0;
-
-    // Check if the number is positive or negative
-    if (s[0] === "-" || s[0] === "+") {
-        sign = s[0] === "-" ? -1 : 1;
-        s = s.slice(1);
+    while (s[0] === "0") {
+        s = s.substring(1)
     }
 
-    // Get the integer
-    for (const char of s) {
-        if (!/\d/.test(char)) break;
-        const digit = parseInt(char, 10);
-
-        if (result > Math.pow(2, 31) / 10 || (result === Math.pow(2, 31) / 10 && digit > 7)) {
-            return sign === 1 ? Math.pow(2, 31) - 1 : -Math.pow(2, 31);
-        }
-
-        result = result * 10 + digit;
+    if (s[0] === "-") {
+        negative = true;
     }
 
-    if (result > 2147483647) {
-        result = 2147483647;
+    if ((!Number(s[0])) && (s[0] !== "-") && (s[0] !== "+")) {
+        return 0;
     }
 
-    if (result < -2147483646) {
-        result = -2147483648;
+    s = s.replace(/\D/g, "");
+    s = Number(s);
+
+    if (negative) {
+        s = s * -1;
+
+    }
+    if (s > Math.pow(2, 31) - 1) {
+        s = Math.pow(2, 31) - 1;
+    }
+    if (s < Math.pow(-2, 31)) {
+        s = Math.pow(-2, 31);
     }
 
-    return result * sign;
+    return s;
 };
 
+console.log(myAtoi("-21474836479999999"));
 console.log(myAtoi("42"));
 console.log(myAtoi("   -42"));
 console.log(myAtoi("4193 with words"));
-console.log("-2147483648");
+console.log(myAtoi("-2147483648"));
+console.log(myAtoi("words and 987"));
