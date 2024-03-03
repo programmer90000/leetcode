@@ -1,0 +1,9 @@
+Get the number which has been input
+
+Seperate the number into an Array with each digit. Each digit should be in its expanded form
+
+Find the correct Roman Numeral matching each digit.
+
+Add the Roman Numeral to an Array
+
+Add all of the different letters to a single string
