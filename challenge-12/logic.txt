@@ -6,4 +6,16 @@ Find the correct Roman Numeral matching each digit.
 
 Add the Roman Numeral to an Array
 
+If the number is 4 use the Roman Numeral IV
+
+If the number is 9, use the Roman Numeral IX
+
+If the number is 40, use the Roman Numeral XL
+
+If the number is 90, use the Roman Numeral XC
+
+If the number is 400, use the Roman Numeral CD
+
+If the number is 900, use the Roman Numeral CM
+
 Add all of the different letters to a single string
