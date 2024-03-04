@@ -1,7 +1,10 @@
 var intToRoman = function (num) {
     const numberString = num.toString();
-    const numberArray = [...numberString].map((digit => parseInt(digit)));
-    console.log(numberArray);
+    let i = 1;
+    const numberArray = [...numberString].map((digit => {
+        return parseInt(digit);
+    }));
+    return numberArray;
 };
 
-intToRoman(123456789);
+console.log(intToRoman(123456789));
