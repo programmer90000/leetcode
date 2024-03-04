@@ -5,8 +5,12 @@ var intToRoman = function (num) {
         return parseInt(digit);
     }));
 
+    let multiplication = 1;
+
     for (let i = numberArray.length - 1; i >= 0; i--) {
-        newNumberArray.push(numberArray[i]);
+        let nums = numberArray[i] * multiplication;
+        multiplication = multiplication * 10;
+        newNumberArray.push(nums);
     }
 
     return newNumberArray;
