@@ -16,11 +16,19 @@ var romanToInt = function (romanNumeral) {
     };
 
     let result = 0;
+    let i = 0;
 
-    // For every item inside the values Array, check if romanNumeral is bigger than it. 
-    for (let i = 0; i < romanNumeral.length; i++) {
-        const symbolIndex = symbols.indexOf(romanNumeral[i]);
-        result += values[symbolIndex];
+    while (i < romanNumeral.length) {
+        // If the Roman Numeral is 2 digits long
+        if (i + 1 < romanNumeral.length && romanNumeral[i] + romanNumeral[i + 1] in romanToIntMap) {
+            result += romanToIntMap[romanNumeral[i] + romanNumeral[i + 1]];
+            i += 2;
+        }
+        // If the Roman Numeral is 1 digit long
+        else {
+            result += romanToIntMap[romanNumeral[i]];
+            i++;
+        }
     }
 
     return result;
