@@ -7,7 +7,7 @@ var romanToInt = function (romanNumeral) {
 
     // For every item inside the values Array, check if romanNumeral is bigger than it. 
     for (let i = 0; i < romanNumeral.length; i++) {
-        console.log(romanNumeral[i]);
+        console.log(symbols.indexOf(romanNumeral[i]));
     }
 
     return result;
