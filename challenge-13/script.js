@@ -3,11 +3,12 @@ var romanToInt = function (romanNumeral) {
     const symbols = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
     const values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 
-    let result = "";
+    let result = 0;
 
     // For every item inside the values Array, check if romanNumeral is bigger than it. 
     for (let i = 0; i < romanNumeral.length; i++) {
-        console.log(symbols.indexOf(romanNumeral[i]));
+        const symbolIndex = symbols.indexOf(romanNumeral[i]);
+        result += values[symbolIndex];
     }
 
     return result;
